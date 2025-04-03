@@ -10,7 +10,9 @@ function App() {
   const password = 'password'
 
   useEffect(() => {
-    fetch('https://shoutout-deploy.onrender.com/checksession')
+    fetch('https://shoutout-deploy.onrender.com/checksession', {
+      credentials: 'include',
+    })
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');

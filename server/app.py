@@ -112,9 +112,9 @@ api.add_resource(SignUp, '/signup')
 class CheckSession(Resource):
 
     def get(self):
-
+        print("CheckSession endpoint was hit")
         user_id = session.get('user_id')
-        print(user_id)
+        print("session: "user_id)
         if user_id:
                user = User.query.filter(User.id == user_id).first()
                response = make_response(user_schema.dump(user), 200)
