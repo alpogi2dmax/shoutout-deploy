@@ -18,9 +18,9 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SECRET_KEY'] = 'secret_key'
-app.config["SESSION_COOKIE_SECURE"] = True  # Required for HTTPS
-app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevent JS access to cookies
-app.config["SESSION_COOKIE_SAMESITE"] = "None"  # Allow cross-site requests
+app.config["SESSION_COOKIE_SECURE"] = False  # Required for HTTPS
+# app.config["SESSION_COOKIE_HTTPONLY"] = True  # Prevent JS access to cookies
+# app.config["SESSION_COOKIE_SAMESITE"] = "None"  # Allow cross-site requests
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 

@@ -9,11 +9,11 @@ function App() {
   const username = 'lightyagami'
   const password = 'password'
 
+  const API_URL = "http://127.0.0.1:5000";
+
   useEffect(() => {
-    fetch('https://shoutout-deploy.onrender.com/checksession', {
-      method: 'GET',
-      credentials: 'include',
-    })
+    // fetch('https://shoutout-deploy.onrender.com/checksession', {
+    fetch(`${API_URL}/checksession`)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -31,7 +31,8 @@ function App() {
   }, [])
 
   const handleLogin = () => {
-    fetch('https://shoutout-deploy.onrender.com/login', {
+    // fetch('https://shoutout-deploy.onrender.com/login', {
+      fetch(`${API_URL}/login`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -61,13 +62,36 @@ function App() {
   }
 
   const handleLogout = () => {
-    fetch(`https://shoutout-deploy.onrender.com/logout`, {
+    // fetch(`https://shoutout-deploy.onrender.com/logout`, {
+    fetch(`${API_URL}/logout`, {
       method: "DELETE",
     })
     .then(() => {
       setUser(null)
     })
   }
+
+  // const handleCheckSession = () => {
+  //   fetch('/checksession', {
+  //     method: 'GET',
+  //     credentials: 'include',
+  //   })
+  //   .then(response => {
+  //       if (!response.ok) {
+  //           throw new Error('Network response was not ok');
+  //       }
+  //       return response.json()
+  //   })
+  //   .then(data => {
+  //       if (data.session === null) {
+  //           console.log('No active session');
+  //       } else {
+  //           console.log(data)
+  //           setUser(data);
+  //       }
+  //   })
+  //   .catch(error => console.log('Fetch error:', error));
+  // }
 
   return (
     <div>
@@ -82,6 +106,7 @@ function App() {
         :
         <p>Welcome {user.first_name}</p>
       }
+      {/* <button onClick={handleCheckSession}>CheckSession</button> */}
 
     </div>
   )
