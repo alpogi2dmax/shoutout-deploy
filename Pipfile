@@ -18,6 +18,7 @@ sqlalchemy = "*"
 marshmallow = "*"
 flask-marshmallow = "*"
 psycopg2-binary = "*"
+gunicorn = "*"
 marshmallow-sqlalchemy = "*"
 
 [requires]
