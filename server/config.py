@@ -18,6 +18,9 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SECRET_KEY'] = 'secret_key'
+app.config['SESSION_COOKIE_SECURE'] = True # Ensures cookies are only sent over HTTPS 
+app.config['SESSION_COOKIE_HTTPONLY'] = True # Prevents JavaScript from accessing the cookies 
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax' # Controls when cookies are sent
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
 
@@ -37,4 +40,4 @@ ma = Marshmallow(app)
 api = Api(app)
 
 # Instantiate CORS
-CORS(app)
+CORS(app, supports_credentials=True)
