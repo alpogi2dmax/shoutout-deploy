@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     fetch('https://shoutout-deploy.onrender.com/checksession', {
+      method: 'GET',
       credentials: 'include',
     })
     .then(response => {

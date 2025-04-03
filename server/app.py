@@ -114,7 +114,7 @@ class CheckSession(Resource):
     def get(self):
         print("CheckSession endpoint was hit")
         user_id = session.get('user_id')
-        print("session: "user_id)
+        print(f"Session: {user_id}")
         if user_id:
                user = User.query.filter(User.id == user_id).first()
                response = make_response(user_schema.dump(user), 200)
@@ -158,5 +158,5 @@ api.add_resource(Logout, '/logout')
 
 
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)
+    app.run(debug=True)
 
