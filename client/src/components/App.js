@@ -9,7 +9,7 @@ function App() {
   const username = 'lightyagami'
   const password = 'password'
 
-  const API_URL = "http://127.0.0.1:5000";
+  const API_URL = "https://shoutout-deploy.onrender.com/";
 
   useEffect(() => {
     // fetch('https://shoutout-deploy.onrender.com/checksession', {
