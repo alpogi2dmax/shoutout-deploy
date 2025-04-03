@@ -10,7 +10,7 @@ function App() {
   const password = 'password'
 
   useEffect(() => {
-    fetch('/checksession')
+    fetch('https://shoutout-deploy.onrender.com/checksession')
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -28,7 +28,7 @@ function App() {
   }, [])
 
   const handleLogin = () => {
-    fetch('/login', {
+    fetch('https://shoutout-deploy.onrender.com/login', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function App() {
   }
 
   const handleLogout = () => {
-    fetch(`/logout`, {
+    fetch(`https://shoutout-deploy.onrender.com/logout`, {
       method: "DELETE",
     })
     .then(() => {
