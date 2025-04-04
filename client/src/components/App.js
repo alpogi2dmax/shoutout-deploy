@@ -9,11 +9,14 @@ function App() {
   const username = 'lightyagami'
   const password = 'password'
 
-  const API_URL = "https://shoutout-deploy.onrender.com/";
+  // const API_URL = "https://shoutout-deploy.onrender.com/";
+  const API_URL = 'http://127.0.0.1:5000'
 
   useEffect(() => {
-    // fetch('https://shoutout-deploy.onrender.com/checksession', {
-    fetch(`${API_URL}/checksession`)
+    fetch('https://shoutout-deploy.onrender.com/checksession', {
+      // fetch(`http://localhost:5000/checksession`, {
+        credentials: 'include'
+      })
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -31,9 +34,10 @@ function App() {
   }, [])
 
   const handleLogin = () => {
-    // fetch('https://shoutout-deploy.onrender.com/login', {
-      fetch(`${API_URL}/login`, {
+    fetch('https://shoutout-deploy.onrender.com/login', {
+      // fetch(`http://localhost:5000/login`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
           'Content-Type': 'application/json',
       },
@@ -62,9 +66,10 @@ function App() {
   }
 
   const handleLogout = () => {
-    // fetch(`https://shoutout-deploy.onrender.com/logout`, {
-    fetch(`${API_URL}/logout`, {
+    fetch(`https://shoutout-deploy.onrender.com/logout`, {
+    // fetch(`http://localhost:5000/logout`, {
       method: "DELETE",
+      credentials: 'include'
     })
     .then(() => {
       setUser(null)

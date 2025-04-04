@@ -159,6 +159,6 @@ api.add_resource(Logout, '/logout')
 
 if __name__ == '__main__':
     # app.run(port=5555, debug=True)
-    app.run()
+    app.run(debug=True)
 
 
